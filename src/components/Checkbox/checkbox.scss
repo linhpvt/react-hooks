@@ -1,0 +1,48 @@
+// <label className="container">
+//       <input type="checkbox"
+//         checked={checked}
+//         onChange={onChange}
+//       />
+//       <span>{label}</span>
+//     </label>
+/* center box */
+label.container {
+  cursor: pointer;
+  span {
+    padding-left: 60px;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+    ~ span::before {
+      display: block;
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: green;
+      border-radius: 3px;
+      position: absolute;
+      top: 6%;
+      left: 12%;
+    }
+
+    ~ span::after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 9px;
+      border-right: 1px solid whitesmoke;
+      border-bottom: 1px solid whitesmoke;
+      position: absolute;
+      top: 20%;
+      left: 27%;
+      transform: rotateZ(45deg);
+      opacity: 0;
+    }
+    &:checked {
+      ~span::after{
+        opacity: 1;
+      }
+    }
+  }
+}

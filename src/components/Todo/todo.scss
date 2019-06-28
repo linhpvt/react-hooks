@@ -1,0 +1,47 @@
+@import '../../styles/share.scss';
+div.row {
+  border: 1px solid $borderColor;
+  display: flex;
+  width: 700px;
+  position: relative;
+  padding: 5px 0px;
+  margin-bottom: 2px;
+
+  .div-checkbox {
+    position: absolute;
+    top: 6px;
+    width: 40px;
+  }
+
+  .div-text {
+    padding-left: 30px;
+    padding-right: 20px;
+    flex: 1 1 auto;
+    
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .div-button {
+    margin-left: auto;
+    position: relative;
+    margin-right: 15px;
+    button {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: transparent;
+      color: green;
+      font-weight: bolder;
+      border: 1px solid green;
+      cursor: pointer;
+    }
+  }
+}
+
+.complete {
+  background: #a0c5a0;
+}

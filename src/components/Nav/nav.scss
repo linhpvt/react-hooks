@@ -1,0 +1,21 @@
+.nav {
+  ul {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    li {
+      flex: 1;
+      list-style: none;
+      a {
+        display: inline-block;
+        width: 95%;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          font-weight: bold;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
