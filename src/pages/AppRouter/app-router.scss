@@ -1,0 +1,17 @@
+.app-router-nav {
+  display: block;
+  padding: 0;
+  margin: 5;
+  ul {
+    display: flex;
+    li {
+      flex: 1;
+      align-items: center;
+      list-style: none;
+      a {
+        display: block;
+        width: 100%
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.app-nav {
+  display: block;
+  height: 8vh;;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    li {
+      list-style: none;
+      flex: 1;
+      a {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

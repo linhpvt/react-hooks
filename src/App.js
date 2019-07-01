@@ -1,27 +1,23 @@
 import React from 'react';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import Home from './containers/Home';
-// import About from './containers/About';
-import Header from './components/Header';
-
-import { StoreProvider } from 'easy-peasy';
-import Store from './store';
-import Switcher from './containers/Switcher';
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import EasypeasyPage from './pages/Easypeasy';
+import AppRouter from './pages/AppRouter';
+import './app.scss';
 const App = () => {
   return (
     <>
-    <StoreProvider store={Store}>
-      <Header />
-      <Switcher />
-      {/* <BrowserRouter>
+      <nav className="app-nav">
+        <ul>
+          <li><a href="/">Easy Peasy</a></li>
+          <li><a href="/app-router">Context API</a></li>
+        </ul>
+      </nav>
+      <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Redirect from="/contact" to="/invoices/dashboard" />
+          <Route exact path="/" component={EasypeasyPage} />
+          <Route path="/app-router" component={AppRouter} />
         </Switch>
-      </BrowserRouter> */}
-    </StoreProvider>
+      </BrowserRouter>
     </>
   );
 }

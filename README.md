@@ -79,3 +79,9 @@ $ yarn add node-sass
 
 # Adding express server
 - create server folder under src folder
+
+# Global Easy peasy
+Using `easy peasy` as a redux replacement
+
+# Global Context API
+Using `context api` + other stuffs to create global store for react application.
