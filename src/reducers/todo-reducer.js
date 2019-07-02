@@ -1,4 +1,4 @@
-import Keys from '../constants/action-types';
+import Keys from '../constants/types';
 const todoReducer = (state, action) => {
   switch(action.type) {
     case Keys.TODO_ADD:

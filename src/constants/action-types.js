@@ -1,5 +1,0 @@
-export default  {
-  TODO_ADD: 'TODO_ADD',
-  TODO_DELETE: 'TODO_DELETE',
-  TODO_TOGGLE: 'TODO_TOGGLE'
-}
