@@ -85,3 +85,12 @@ Using `easy peasy` as a redux replacement
 
 # Global Context API
 Using `context api` + other stuffs to create global store for react application.
+
+# Add bootstrap and react-bootstrap
+  yarn add react-bootstrap bootstrap.
+  reference to use: https://react-bootstrap.netlify.com/getting-started/introduction/
+
+# Binding react and redux
+https://github.com/reduxjs/react-redux
+Reference: https://react-redux.js.org/
+
