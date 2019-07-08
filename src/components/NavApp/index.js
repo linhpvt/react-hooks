@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStoreActions } from 'easy-peasy';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 import Navigator from '../../constants/navigator';
 import logo from '../../assets/images/logo.jpg';
 import { getNavByTab } from '../../helpers';
@@ -12,10 +12,13 @@ import { Navbar,
 import './navapp.scss';
 
 const NavApp = () => {
-  const { switchTo } = useStoreActions(actions => actions.switcher); 
+  const { switchTo } = useStoreActions(actions => actions.switcher);
+  const {tab: tabState, comp } = useStoreState(state => state.switcher);
   const switchTab = (tab) => (e) => {
     const navData = getNavByTab(tab);
-    switchTo(navData);
+    if (tabState !== navData.tab || comp !== navData.comp) {
+      switchTo(navData);
+    }
   };
   const renderOneTab = nav => (
     <Nav.Link

@@ -19,17 +19,17 @@ export default {
       }
       // stop spinner
       resetRequestEP(Store);
-      actions.getPosts(data);
+      actions.setPosts(data);
       // show success
       successRequestEP(Store);
     }),
 
     // actions
-    getPosts: action((state, items) => {
+    setPosts: action((state, items) => {
       return {
         ...state,
         items
-        };
+      };
     }),
   }
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import './home.scss';
 import Todos from '../../components/Todos';
@@ -6,33 +6,32 @@ import TodoForm from '../../components/TodoForm';
 import { Container, Table } from 'react-bootstrap';
 
 const Home = () => {
-  const {
-    // todos: { item },
-    posts: { items }
-  } = useStoreState(state => state);
-  const {
-    // todos: { addItem, updateItem },
-    posts: { getPostsAsync }
-  } = useStoreActions(actions => actions);
-  const firstLoad = useRef();
-  console.log('render', items.length);
-  // const { onTextChange, onSubmit } = props || {};
-  useEffect(() => {
-    console.log('RRRRRRRRRRRRRRRRRRRR');
-    getPostsAsync();
-  }, [firstLoad]);
 
+  const { item } = useStoreState(state => state.todos);
+  const { items } = useStoreState(state => state.posts);
+
+  const {
+    todos: { addItem, updateItem } = {},
+    posts: { getPostsAsync } = {}
+  } = useStoreActions(actions => actions);
+  
+  // console.log('render', items.length);
+  useEffect(() => {
+    getPostsAsync();
+  }, [getPostsAsync]);
+
+// 0903848022 aBac
   return (
     <Container fluid>
-      {/* <h1 className="display-4">TODO APPs</h1>
+      <h1 className="display-4">TODO APPs</h1>
       <TodoForm onSubmit={addItem}
         text={item}
         onTextChange={updateItem} />
-      <Todos /> */}
+      <Todos />
       <Table bordered striped variant="dark" size="sm">
         <thead>
           <tr>
-            <th>USER ID</th>
+            <th>User Id</th>
             <th>Title</th>
             <th>Body</th>
           </tr>
@@ -49,6 +48,5 @@ const Home = () => {
     </Container>
   );
 }
-
-export default Home;
+export default React.memo(Home);
 
