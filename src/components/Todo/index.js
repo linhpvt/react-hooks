@@ -1,23 +1,34 @@
 import React from 'react';
-import Checkbox from '../Checkbox';
+import { Form, Button } from 'react-bootstrap';
 import './todo.scss';
 
 const Todo = ({ complete, id, title, toggleItem, deleteItem }) => {
-  const cssComplete = complete ? 'row complete' : 'row';
-  const onCheckChange = id => e => toggleItem(id);
-  const onDeleteClick = id => e => deleteItem(id);
+  const cssComplete = complete ? 'todo-row bg-success' : 'todo-row';
+  const onCheckChange = id => () => toggleItem(id);
+  const onDeleteClick = id => () => deleteItem(id);
+  console.log(id);
   return (
-  <div className={cssComplete} key={id}>
-    <div className="div-checkbox">
-      <Checkbox
-        checked={complete}
-        onChange={onCheckChange(id)}
-      />
-    </div>
-    <div className="div-text">{title}</div>
-    <div className="div-button">
-      <button onClick={onDeleteClick(id)} >X</button>
-    </div>
-  </div>);
+  <tr className={cssComplete} key={id}>
+    <td className="todo-cb-col">
+    <Form.Check
+      className=""
+      custom
+      type="checkbox"
+      id="custom-checkbox"
+      label= ""
+      onChange={onCheckChange(id)}
+    />
+    </td>
+    <td>{title}</td>
+    <td className="todo-btn-col">
+      <Button
+        size="sm"
+        type="button"
+        onClick={onDeleteClick(id)}
+        variant="danger">
+        X
+      </Button>
+    </td>
+  </tr>)
 }
-export default Todo;
+export default React.memo(Todo);

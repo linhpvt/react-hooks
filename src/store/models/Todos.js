@@ -8,11 +8,19 @@ export default {
     // actions
     addItem: action((state, payload) => {
       const { item, items } = state;
-      return { ...state, item: '', items: [{ title: item, id: new Date().getTime(), complete: false}, ...items] };
+      return {
+        ...state,
+        item: '',
+        items: [
+          { title: item, id: new Date().getTime(), complete: false },
+          ...items]
+        };
     }),
+  
     updateItem: action((state, payload) => {
       return {...state, item: payload};
     }),
+  
     toggleItem: action((state, id) => {
       let { items = []} = state;
       items = items.map(item => {
@@ -22,6 +30,7 @@ export default {
         return {...state, items};
       });
     }),
+
     deleteItem: action((state, id) => {
       let { items = []} = state;
       items = items.filter(item => item.id !== id);

@@ -11,7 +11,6 @@ export default {
     // thunks
     // actions
     switchTo: action((state, payload) => {
-      console.log('SATE', state);
       return { ...state, ...state.switcher, ...payload };
     })
   }
