@@ -20,7 +20,7 @@ export default props => {
       <Form.Group controlId="formBasicChecbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
-
+      
       <Button variant="primary" type="submit">
         Submit
       </Button>

@@ -1,0 +1,15 @@
+.right-most {
+  margin-right: -25px
+}
+.left-most {
+  margin-left: -10px;
+  label {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.complete {
+  text-decoration: line-through;
+  color: #28a745;
+}

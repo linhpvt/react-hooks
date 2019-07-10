@@ -3,7 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import EasypeasyPage from './pages/Easypeasy';
 import AppRouter from './pages/AppRouter';
-import Form from './pages/Form';
+import BootStrapForm from './pages/BootStrapForm';
+import ReactReduxHook from './pages/ReactReduxHook';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './app.scss';
 
@@ -15,6 +17,7 @@ const App = () => {
         <Row className="w-100 border-0">
           <Col><a href="/">Easy Peasy</a></Col>
           <Col><a href="/app-router">Context API</a></Col>
+          <Col><a href="/react-redux-hook">React Redux Hooks</a></Col>
           <Col><a href="/form">Bootstrap</a></Col>
         </Row>
       </Container>
@@ -23,7 +26,8 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={EasypeasyPage} />
           <Route path="/app-router" component={AppRouter} />
-          <Route path="/form" component={Form} />
+          <Route path="/form" component={BootStrapForm} />
+          <Route path="/react-redux-hook" component={ReactReduxHook} />
         </Switch>
       </BrowserRouter>
     </>

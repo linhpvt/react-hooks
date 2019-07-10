@@ -1,0 +1,1 @@
+Using context API and reducer to create a global store without using any other third libs such as `redux, easy peasy`, etc
