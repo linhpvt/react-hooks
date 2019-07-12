@@ -1,30 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Form, Col, Button } from 'react-bootstrap';
-import uuid from 'uuid/v4';
+import React, { useState, useRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Form, Col, Button } from "react-bootstrap";
+import uuid from "uuid/v4";
+import * as TodoActions from "../../react-redux-hook/actions/TodoActions";
 
-import * as TodoActions from '../../react-redux-hook/actions/TodoActions';
 export default () => {
   const inputRef = useRef();
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
+
+  // ref to dispatch func of store
   const dispatch = useDispatch();
+
+  // bind to which actions will being used for this component
   const actions = bindActionCreators(TodoActions, dispatch);
-  useEffect(() => {
-    // focus input
-    inputRef.current.focus();
-  });
+  useEffect(() => inputRef.current.focus());
+
   const onSubmit = event => {
     event.preventDefault();
-    if (input.trim() === '') return;
+    if (input.trim() === "") return;
 
     // dispatch action
     actions.add({ id: uuid(), name: input.trim(), complete: false });
+
     // reset form
-    setInput('');
-  }
+    setInput("");
+  };
   const onChange = event => setInput(event.target.value);
-  
+
   return (
     <Form onSubmit={onSubmit}>
       <Form.Row>
@@ -34,13 +37,15 @@ export default () => {
             type="text"
             value={input}
             onChange={onChange}
-            ref={inputRef} />
+            ref={inputRef}
+          />
         </Col>
         <Col>
-        <Button type="submit" onClick={onSubmit}>Add</Button>
+          <Button type="submit" onClick={onSubmit}>
+            Add
+          </Button>
         </Col>
       </Form.Row>
     </Form>
-    // <p>Form input {JSON.stringify(list)}</p>
   );
-}
+};
